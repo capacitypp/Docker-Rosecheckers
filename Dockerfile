@@ -47,12 +47,12 @@ RUN contrib/download_prerequisites
 WORKDIR ..
 RUN mkdir build_gcc
 WORKDIR build_gcc/
-RUN ../gcc-4.6.4/configure --prefix=/usr/local/gcc --enable-languages=c,c++ --disable-bootstrap --disable-multilib
+RUN ../gcc-4.6.4/configure --prefix=/usr/local/gcc/gcc-4.6.4 --enable-languages=c,c++ --disable-bootstrap --disable-multilib
 RUN make
 RUN make install
 ENV LD_LIBRARY_PATH /usr/local/gcc/lib64:$LD_LIBRARY_PATH
 ENV LIBRARY_PATH /usr/local/gcc/lib64:$LIBRARY_PATH
-ENV PATH /usr/local/gcc/bin:$PATH
+ENV PATH /usr/local/gcc/gcc-4.6.4/bin:$PATH
 WORKDIR ..
 RUN rm -f gcc-4.6.4.tar.gz
 RUN rm -rf gcc-4.6.4
