@@ -50,8 +50,8 @@ WORKDIR build_gcc-4.6.4/
 RUN ../gcc-4.6.4/configure --prefix=/usr/local/gcc/gcc-4.6.4 --enable-languages=c,c++ --disable-bootstrap --disable-multilib
 RUN make
 RUN make install
-ENV LD_LIBRARY_PATH /usr/local/gcc/lib64:$LD_LIBRARY_PATH
-ENV LIBRARY_PATH /usr/local/gcc/lib64:$LIBRARY_PATH
+ENV LIBRARY_PATH /usr/local/gcc/lib64
+ENV PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 ENV PATH /usr/local/gcc/gcc-4.6.4/bin:$PATH
 WORKDIR ..
 RUN rm -f gcc-4.6.4.tar.gz
