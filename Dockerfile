@@ -78,7 +78,7 @@ RUN apt-get install -y flex
 RUN apt-get install -y bison
 RUN apt-get install -y ghostscript
 RUN apt-get install -y python
-RUN git clone -b v0.9.6.4 https://github.com/rose-compiler/rose rose
+RUN git clone -b v0.9.7.1 https://github.com/rose-compiler/rose rose
 WORKDIR rose
 RUN ./build
 WORKDIR ..
