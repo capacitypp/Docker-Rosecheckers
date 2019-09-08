@@ -2,9 +2,7 @@ FROM debian:jessie
 
 WORKDIR /root/work
 
-RUN echo 'deb http://archive.debian.org/debian wheezy main' > /etc/apt/sources.list
-RUN echo 'deb http://archive.debian.org/debian-security wheezy/updates main' >> /etc/apt/sources.list
-RUN apt-get -o Acquire::Check-Valid-Until=false update
+RUN apt-get update
 RUN apt-get install -y build-essential
 RUN apt-get install -y wget
 RUN apt-get install -y curl
