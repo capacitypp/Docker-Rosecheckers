@@ -57,9 +57,9 @@ WORKDIR ..
 RUN rm -f gcc-4.6.4.tar.gz
 RUN rm -rf gcc-4.6.4
 RUN rm -rf build_gcc-4.6.4
-RUN curl -L https://sourceforge.net/projects/boost/files/boost/1.50.0/boost_1_50_0.tar.gz/download -o boost_1_50_0.tar.gz
-RUN tar xvf boost_1_50_0.tar.gz
-WORKDIR boost_1_50_0
+RUN curl -L https://sourceforge.net/projects/boost/files/boost/1.61.0/boost_1_61_0.tar.gz/download -o boost_1_61_0.tar.gz
+RUN tar xvf boost_1_61_0.tar.gz
+WORKDIR boost_1_61_0
 RUN apt-get install -y zlib1g-dev
 RUN apt-get install -y libbz2-dev
 RUN apt-get install -y python-dev
@@ -69,8 +69,8 @@ ENV LD_LIBRARY_PATH /usr/local/boost/lib:$LD_LIBRARY_PATH
 ENV LIBRARY_PATH /usr/local/boost/lib:$LIBRARY_PATH
 ENV CPATH /usr/local/boost/include:$CPATH
 WORKDIR ..
-RUN rm -f boost_1_50_0.tar.gz
-RUN rm -rf boost_1_50_0
+RUN rm -f boost_1_61_0.tar.gz
+RUN rm -rf boost_1_61_0
 RUN apt-get install -y git
 RUN apt-get install -y automake
 RUN apt-get install -y libtool
