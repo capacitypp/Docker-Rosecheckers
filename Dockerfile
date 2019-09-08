@@ -99,6 +99,7 @@ ENV LD_LIBRARY_PATH /usr/local/rose/lib:$LD_LIBRARY_PATH
 ENV LIBRARY_PATH /usr/local/rose/lib:$LIBRARY_PATH
 ENV CPATH /usr/local/rose/include:$CPATH
 ENV CPATH /usr/local/rose/include/rose:$CPATH
+RUN apt-get install -y libtool-bin
 RUN make pgms
 RUN make DESTDIR=/usr/local/rosecheckers install
 ENV PATH=/usr/local/rosecheckers/usr/bin:$PATH
