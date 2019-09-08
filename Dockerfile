@@ -45,8 +45,8 @@ RUN tar xvf gcc-4.6.4.tar.gz
 WORKDIR gcc-4.6.4
 RUN contrib/download_prerequisites
 WORKDIR ..
-RUN mkdir build_gcc
-WORKDIR build_gcc/
+RUN mkdir build_gcc-4.6.4
+WORKDIR build_gcc-4.6.4/
 RUN ../gcc-4.6.4/configure --prefix=/usr/local/gcc/gcc-4.6.4 --enable-languages=c,c++ --disable-bootstrap --disable-multilib
 RUN make
 RUN make install
@@ -56,7 +56,7 @@ ENV PATH /usr/local/gcc/gcc-4.6.4/bin:$PATH
 WORKDIR ..
 RUN rm -f gcc-4.6.4.tar.gz
 RUN rm -rf gcc-4.6.4
-RUN rm -rf build_gcc
+RUN rm -rf build_gcc-4.6.4
 RUN curl -L https://sourceforge.net/projects/boost/files/boost/1.45.0/boost_1_45_0.tar.gz/download -o boost_1_45_0.tar.gz
 RUN tar xvf boost_1_45_0.tar.gz
 WORKDIR boost_1_45_0
