@@ -7,6 +7,22 @@ RUN apt-get install -y build-essential
 RUN apt-get install -y wget
 RUN apt-get install -y curl
 RUN apt-get install -y vim-nox
+RUN wget http://ftp.tsukuba.wide.ad.jp/software/gcc/releases/gcc-4.8.5/gcc-4.8.5.tar.gz
+RUN tar xvf gcc-4.8.5.tar.gz
+WORKDIR gcc-4.8.5
+RUN contrib/download_prerequisites
+WORKDIR ..
+RUN mkdir build_gcc-4.8.5
+WORKDIR build_gcc-4.8.5/
+RUN ../gcc-4.8.5/configure --prefix=/usr/local/gcc/gcc-4.8.5 --enable-languages=c,c++ --disable-bootstrap --disable-multilib
+RUN make
+RUN make install
+ENV LIBRARY_PATH /usr/local/gcc/gcc-4.8.5/lib64
+ENV PATH /usr/local/gcc/gcc-4.8.5/bin:$PATH
+WORKDIR ..
+RUN rm -f gcc-4.8.5.tar.gz
+RUN rm -rf gcc-4.8.5
+RUN rm -rf build_gcc-4.8.5
 RUN wget http://ftp.tsukuba.wide.ad.jp/software/gcc/releases/gcc-4.6.4/gcc-4.6.4.tar.gz
 RUN tar xvf gcc-4.6.4.tar.gz
 WORKDIR gcc-4.6.4
